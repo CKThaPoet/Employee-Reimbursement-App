@@ -3,8 +3,7 @@
   <groupId>com.revature</groupId>
   <artifactId>P1-Chani-Kinsler</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
+  <packaging>war</packaging> 
   
   <properties>
   <!-- In this properties tag, I'm just setting our Java version to Java 11-->
