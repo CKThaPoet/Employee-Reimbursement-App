@@ -16,8 +16,10 @@ public class ReimbursementType {
 @Column(name = "re_type_id") //the name can be different here for the data bases I left it the same
 private	int re_type_id;
 
-@Column(name = "role_type")
+@Column(name = "re_type")
 private	String re_type; //might need to fix this is also one to one
+
+//one status can be assigned to many reimbursements
 
 //will add constructors after iam sure the syntax is correct for hibernate and my relationships are intact 
 }
