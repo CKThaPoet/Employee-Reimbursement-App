@@ -19,9 +19,6 @@ private int	re_status_id;
 @Column(name = "role_status")
 private String	re_status;
 
-@Column(name = "role_status_fk")
-private	int re_status_fk; //might need to fix this one
-//
 
 //will add constructors after iam sure the syntax is correct for hibernate and my relationships are intake 
 }

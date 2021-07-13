@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +21,10 @@ public class Reimbursement {
 @Column(name = "re_id") //the name can be different here for the data bases I left it the same	
 private	int re_id;
 
-@JoinColumn(name = "re_author")
-private	 User re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
+
+@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+@JoinColumn(name = "user_id")
+private	 String re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
 
 @Column(name = "re_submmited")
 private	 String re_submmited; //date
@@ -35,6 +39,7 @@ private	 ReimbursementType reimbursementType; //REFERENCES reimbursementType (re
 @Column(name = "re_description")
 private	 String re_description;
 
+//many to one many reimbursements can be resloved by one user
 @Column(name = "re_resolver")
 private	String re_resolver; //REFERENCES users (user_id) fix this for the relationships
 
