@@ -33,9 +33,11 @@
 
 
 	<!-- We'll map our classes here... The database won't recognize them as tables if you don't. --> 	
-	<mapping class="com.revature.models. "/>
-	<mapping class="com.revature.models. "/>
-	
+	<mapping class="com.revature.models.UserRoles"/>
+	<mapping class="com.revature.models.User"/>
+	<mapping class="com.revature.models.ReimbursementType"/>
+	<mapping class="com.revature.models.ReimbursementStatus"/>
+ 	<mapping class="com.revature.models.Reimbursement"/>
  	
  	</session-factory>
  
