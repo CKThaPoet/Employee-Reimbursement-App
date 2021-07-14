@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_roles")
-public class UserRoles {
+public class UserRole {
 
 @Id //this makes a field the primary key
 @GeneratedValue(strategy = GenerationType.IDENTITY) //this makes our primary key a serial data type
@@ -23,20 +23,20 @@ private	int user_role_id ;
 private String user_role;
 
 
-public UserRoles() {
+public UserRole() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
 
-public UserRoles(int user_role_id, String user_role) {
+public UserRole(int user_role_id, String user_role) {
 	super();
 	this.user_role_id = user_role_id;
 	this.user_role = user_role;
 }
 
 
-public UserRoles(String user_role) {
+public UserRole(String user_role) {
 	super();
 	this.user_role = user_role;
 }
@@ -62,7 +62,7 @@ public boolean equals(Object obj) {
 		return false;
 	if (getClass() != obj.getClass())
 		return false;
-	UserRoles other = (UserRoles) obj;
+	UserRole other = (UserRole) obj;
 	return Objects.equals(user_role, other.user_role) && user_role_id == other.user_role_id;
 }
 

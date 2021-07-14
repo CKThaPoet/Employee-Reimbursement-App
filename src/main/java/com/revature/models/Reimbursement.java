@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,10 +26,10 @@ private	int re_id;
 //many authors  have one user id
 @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 @JoinColumn(name = "user_id")
-private	 String re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
-
+private	 int re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
+//had author as string changed it to match user id table	
 @Column(name = "re_submmited")
-private	 String re_submmited; //date
+private	 LocalDateTime re_submmited; //date i changed from string to local datetime
 
 @Column(name = "re_amount")
 private	 int re_amount;
@@ -64,7 +64,7 @@ public Reimbursement() {
 
 
 
-public Reimbursement(int re_id, String re_author, String re_submmited, int re_amount,
+public Reimbursement(int re_id, int re_author, LocalDateTime re_submmited, int re_amount,
 		ReimbursementType reimbursement_type, String re_description, String re_resolver, String re_resolved,
 		ReimbursementStatus reimbursement_status) {
 	super();
@@ -81,7 +81,7 @@ public Reimbursement(int re_id, String re_author, String re_submmited, int re_am
 
 
 
-public Reimbursement(String re_author, String re_submmited, int re_amount, ReimbursementType reimbursement_type,
+public Reimbursement(int re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
 		String re_description, String re_resolver, String re_resolved, ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_author = re_author;
@@ -145,25 +145,25 @@ public void setRe_id(int re_id) {
 
 
 
-public String getRe_author() {
+public int getRe_author() {
 	return re_author;
 }
 
 
 
-public void setRe_author(String re_author) {
+public void setRe_author(int re_author) {
 	this.re_author = re_author;
 }
 
 
 
-public String getRe_submmited() {
+public LocalDateTime getRe_submmited() {
 	return re_submmited;
 }
 
 
 
-public void setRe_submmited(String re_submmited) {
+public void setRe_submmited(LocalDateTime re_submmited) {
 	this.re_submmited = re_submmited;
 }
 
