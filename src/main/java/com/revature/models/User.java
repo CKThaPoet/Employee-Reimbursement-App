@@ -37,10 +37,13 @@ private	String user_last_name;
 @Column(name = "user_email")
 private	String user_email; //UNIQUE
 
+//many users have one role
 @ManyToOne(fetch = FetchType.EAGER)
 @JoinColumn(name = "user_role_id") //might be missing more here... still learning I think I got it probably 
-private	UserRoles userRoles;	//might need to fix this... despite iam mighting changes on what I learned thus far... high possibility this is still wrong
+private	UserRoles user_roles;	//might need to fix this... despite iam mighting changes on what I learned thus far... high possibility this is still wrong
 
+
+//one author can have many reimbursements
 @OneToMany (mappedBy="re_author",fetch = FetchType.EAGER)
 private List<Reimbursement> reimbursements;
 

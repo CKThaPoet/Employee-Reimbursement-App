@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reimbursementType")
+@Table(name = "reimbursement_type")
 public class ReimbursementType {
 
 @Id //this makes a field the primary key
@@ -19,7 +21,59 @@ private	int re_type_id;
 @Column(name = "re_type")
 private	String re_type; //might need to fix this is also one to one
 
-//one status can be assigned to many reimbursements
+public ReimbursementType() {
+	super();
+	// TODO Auto-generated constructor stub
+}
 
-//will add constructors after iam sure the syntax is correct for hibernate and my relationships are intact 
+public ReimbursementType(int re_type_id, String re_type) {
+	super();
+	this.re_type_id = re_type_id;
+	this.re_type = re_type;
+}
+
+public ReimbursementType(String re_type) {
+	super();
+	this.re_type = re_type;
+}
+
+@Override
+public String toString() {
+	return "ReimbursementType [re_type_id=" + re_type_id + ", re_type=" + re_type + "]";
+}
+
+@Override
+public int hashCode() {
+	return Objects.hash(re_type, re_type_id);
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	ReimbursementType other = (ReimbursementType) obj;
+	return Objects.equals(re_type, other.re_type) && re_type_id == other.re_type_id;
+}
+
+public int getRe_type_id() {
+	return re_type_id;
+}
+
+public void setRe_type_id(int re_type_id) {
+	this.re_type_id = re_type_id;
+}
+
+public String getRe_type() {
+	return re_type;
+}
+
+public void setRe_type(String re_type) {
+	this.re_type = re_type;
+}
+
+
 }
