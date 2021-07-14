@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,5 +23,69 @@ private	int user_role_id ;
 private String user_role;
 
 
-//will add constructors after iam sure the syntax is correct for hibernate and my relationships are intact
+public UserRoles() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
+public UserRoles(int user_role_id, String user_role) {
+	super();
+	this.user_role_id = user_role_id;
+	this.user_role = user_role;
+}
+
+
+public UserRoles(String user_role) {
+	super();
+	this.user_role = user_role;
+}
+
+
+@Override
+public String toString() {
+	return "UserRoles [user_role_id=" + user_role_id + ", user_role=" + user_role + "]";
+}
+
+
+@Override
+public int hashCode() {
+	return Objects.hash(user_role, user_role_id);
+}
+
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	UserRoles other = (UserRoles) obj;
+	return Objects.equals(user_role, other.user_role) && user_role_id == other.user_role_id;
+}
+
+
+public int getUser_role_id() {
+	return user_role_id;
+}
+
+
+public void setUser_role_id(int user_role_id) {
+	this.user_role_id = user_role_id;
+}
+
+
+public String getUser_role() {
+	return user_role;
+}
+
+
+public void setUser_role(String user_role) {
+	this.user_role = user_role;
+}
+
+
+
 }
