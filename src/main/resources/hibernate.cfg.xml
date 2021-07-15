@@ -32,8 +32,9 @@
 	<!-- when what's update? update won't drop your tables, they'll update them with any changes. -->
 
 
-	<!-- We'll map our classes here... The database won't recognize them as tables if you don't. --> 	
-	<mapping class="com.revature.models.UserRoles"/>
+	<!-- We'll map our classes here... The database won't recognize them as tables if you don't. --> 
+	
+	<mapping class="com.revature.models.UserRole"/>
 	<mapping class="com.revature.models.User"/>
 	<mapping class="com.revature.models.ReimbursementType"/>
 	<mapping class="com.revature.models.ReimbursementStatus"/>

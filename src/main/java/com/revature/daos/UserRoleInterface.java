@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.revature.models.UserRole;
 
-public interface UserRoleDAOInterface {
+public interface UserRoleInterface {
 //if I want CRUD for the roles
 	
 	//might do a get role by id most likely will have to change models though

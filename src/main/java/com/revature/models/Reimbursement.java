@@ -46,7 +46,7 @@ private	 String re_description;
 private	String re_resolver; //REFERENCES users (user_id) fix this for the relationships
 
 @Column(name = "re_resolved")
-private	String re_resolved; //date
+private	String re_resolved; //date    <<<<<<<<<<<<<<*NEED TO CHANGE THIS TO LOCAL DATE TIME AS WELL*
 
 //many reimbursements have one status id
 @ManyToOne(fetch = FetchType.EAGER)
@@ -64,6 +64,15 @@ public Reimbursement() {
 
 
 
+public Reimbursement(int re_id, String re_resolved, ReimbursementStatus reimbursement_status) {
+	super();
+	this.re_id = re_id;
+	this.re_resolved = re_resolved;
+	this.reimbursement_status = reimbursement_status;
+}
+
+
+
 public Reimbursement(int re_id, int re_author, LocalDateTime re_submmited, int re_amount,
 		ReimbursementType reimbursement_type, String re_description, String re_resolver, String re_resolved,
 		ReimbursementStatus reimbursement_status) {
@@ -77,6 +86,18 @@ public Reimbursement(int re_id, int re_author, LocalDateTime re_submmited, int r
 	this.re_resolver = re_resolver;
 	this.re_resolved = re_resolved;
 	this.reimbursement_status = reimbursement_status;
+}
+
+
+
+public Reimbursement(int re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
+		String re_description) {
+	super();
+	this.re_author = re_author;
+	this.re_submmited = re_submmited;
+	this.re_amount = re_amount;
+	this.reimbursement_type = reimbursement_type;
+	this.re_description = re_description;
 }
 
 
