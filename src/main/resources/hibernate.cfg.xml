@@ -27,15 +27,16 @@
  	<property name="hibernate.format_sql">true</property>
  	
  	<!-- DDL -->
-	<property name="hibernate.hbm2ddl.auto">create</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
 	<!-- remember, create drops your tables at runtime, you won't want to use it if you want data to be saved -->
 	<!-- when what's update? update won't drop your tables, they'll update them with any changes. -->
 
 
 	<!-- We'll map our classes here... The database won't recognize them as tables if you don't. --> 
 	
-	<mapping class="com.revature.models.UserRole"/>
+	
 	<mapping class="com.revature.models.User"/>
+	<mapping class="com.revature.models.UserRole"/>
 	<mapping class="com.revature.models.ReimbursementType"/>
 	<mapping class="com.revature.models.ReimbursementStatus"/>
  	<mapping class="com.revature.models.Reimbursement"/>

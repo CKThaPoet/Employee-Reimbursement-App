@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import com.revature.models.Reimbursement;
 import com.revature.utils.HibernateUtil;
 
-public class ReimbursementDAO implements ReimbursementDAOInterface {
+public class ReimbursementDAO implements ReimbursementInterface {
 
 	@Override
 	public void addReimbursement(Reimbursement reimbursement) {

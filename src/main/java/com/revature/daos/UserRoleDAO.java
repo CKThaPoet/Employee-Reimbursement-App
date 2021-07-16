@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import com.revature.models.UserRole;
 import com.revature.utils.HibernateUtil;
 
-public class UserRoleDAO implements UserRoleDAOInterface {
+public class UserRoleDAO implements UserRoleInterface {
 
 	@Override
 	public UserRole getUser_role_id(int re_id) {
@@ -39,12 +39,12 @@ public class UserRoleDAO implements UserRoleDAOInterface {
 	}
 
 	@Override
-	public void addRole(UserRole newRole) {
+	public void addRole(UserRole userrole) {
 				//open a new hibernate session
 				Session ses = HibernateUtil.getSession();
 				
 				//this is to insert the new role into the table by using the save method
-				ses.save(newRole);
+				ses.save(userrole);
 				
 				//now close the hibernate session
 				HibernateUtil.closeSession();

@@ -1,12 +1,15 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,10 @@ private	int user_role_id ;
 
 @Column(name = "user_role")
 private String user_role;
+
+//
+@OneToMany(mappedBy="user_role",fetch = FetchType.EAGER)
+private List<User> user;
 
 
 public UserRole() {
@@ -67,23 +74,14 @@ public boolean equals(Object obj) {
 }
 
 
-public int getUser_role_id() {
-	return user_role_id;
+
+public List<User> getUser() {
+	return user;
 }
 
 
-public void setUser_role_id(int user_role_id) {
-	this.user_role_id = user_role_id;
-}
-
-
-public String getUser_role() {
-	return user_role;
-}
-
-
-public void setUser_role(String user_role) {
-	this.user_role = user_role;
+public void setUser(List<User> user) {
+	this.user = user;
 }
 
 

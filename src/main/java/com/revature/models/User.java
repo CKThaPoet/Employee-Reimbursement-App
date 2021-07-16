@@ -3,6 +3,7 @@ package com.revature.models;
 import java.util.List;
 import java.util.Objects;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -44,7 +45,7 @@ private	String user_email; //UNIQUE
 private	UserRole user_role;	//might need to fix this... despite iam mighting changes on what I learned thus far... high possibility this is still wrong
 
 
-//one author can have many reimbursements
+//one user can have many reimbursements
 @OneToMany (mappedBy="re_author",fetch = FetchType.EAGER)
 private List<Reimbursement> reimbursements;
 
@@ -119,6 +120,31 @@ public User(int user_id, String user_name, String user_password, String user_fir
 	this.user_last_name = user_last_name;
 	this.user_email = user_email;
 	this.user_role = user_role;
+}
+
+
+
+
+public User(String user_name, String user_password, String user_first_name, String user_last_name, String user_email,
+		UserRole user_role) {
+	super();
+	this.user_name = user_name;
+	this.user_password = user_password;
+	this.user_first_name = user_first_name;
+	this.user_last_name = user_last_name;
+	this.user_email = user_email;
+	this.user_role = user_role;
+}
+
+
+
+public User(String user_name, String user_password, String user_first_name, String user_last_name, String user_email) {
+	super();
+	this.user_name = user_name;
+	this.user_password = user_password;
+	this.user_first_name = user_first_name;
+	this.user_last_name = user_last_name;
+	this.user_email = user_email;
 }
 
 

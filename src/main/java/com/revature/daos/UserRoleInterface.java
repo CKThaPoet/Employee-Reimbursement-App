@@ -17,7 +17,7 @@ public interface UserRoleInterface {
 	public List<UserRole> getAllRole();
 	
 	//insert a new role to the DB
-	public void addRole(UserRole newRole);
+	public void addRole(UserRole userrole);
 	
 	//if I wanted to update or change  a role in the database
 	public void updateRole(UserRole user_role);

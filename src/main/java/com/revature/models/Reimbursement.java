@@ -26,7 +26,7 @@ private	int re_id;
 //many authors  have one user id
 @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 @JoinColumn(name = "user_id")
-private	 int re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
+private User re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
 //had author as string changed it to match user id table	
 @Column(name = "re_submmited")
 private	 LocalDateTime re_submmited; //date i changed from string to local datetime
@@ -46,7 +46,7 @@ private	 String re_description;
 private	String re_resolver; //REFERENCES users (user_id) fix this for the relationships
 
 @Column(name = "re_resolved")
-private	String re_resolved; //date    <<<<<<<<<<<<<<*NEED TO CHANGE THIS TO LOCAL DATE TIME AS WELL*
+private	LocalDateTime re_resolved; //date    <<<<<<<<<<<<<<*NEED TO CHANGE THIS TO LOCAL DATE TIME AS WELL*
 
 //many reimbursements have one status id
 @ManyToOne(fetch = FetchType.EAGER)
@@ -64,7 +64,7 @@ public Reimbursement() {
 
 
 
-public Reimbursement(int re_id, String re_resolved, ReimbursementStatus reimbursement_status) {
+public Reimbursement(int re_id, LocalDateTime re_resolved, ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_id = re_id;
 	this.re_resolved = re_resolved;
@@ -73,8 +73,8 @@ public Reimbursement(int re_id, String re_resolved, ReimbursementStatus reimburs
 
 
 
-public Reimbursement(int re_id, int re_author, LocalDateTime re_submmited, int re_amount,
-		ReimbursementType reimbursement_type, String re_description, String re_resolver, String re_resolved,
+public Reimbursement(int re_id, User re_author, LocalDateTime re_submmited, int re_amount,
+		ReimbursementType reimbursement_type, String re_description, String re_resolver, LocalDateTime re_resolved,
 		ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_id = re_id;
@@ -90,7 +90,7 @@ public Reimbursement(int re_id, int re_author, LocalDateTime re_submmited, int r
 
 
 
-public Reimbursement(int re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
+public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
 		String re_description) {
 	super();
 	this.re_author = re_author;
@@ -102,8 +102,8 @@ public Reimbursement(int re_author, LocalDateTime re_submmited, int re_amount, R
 
 
 
-public Reimbursement(int re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
-		String re_description, String re_resolver, String re_resolved, ReimbursementStatus reimbursement_status) {
+public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
+		String re_description, String re_resolver, LocalDateTime re_resolved, ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_author = re_author;
 	this.re_submmited = re_submmited;
@@ -166,13 +166,13 @@ public void setRe_id(int re_id) {
 
 
 
-public int getRe_author() {
+public User getRe_author() {
 	return re_author;
 }
 
 
 
-public void setRe_author(int re_author) {
+public void setRe_author(User re_author) {
 	this.re_author = re_author;
 }
 
@@ -238,13 +238,13 @@ public void setRe_resolver(String re_resolver) {
 
 
 
-public String getRe_resolved() {
+public LocalDateTime getRe_resolved() {
 	return re_resolved;
 }
 
 
 
-public void setRe_resolved(String re_resolved) {
+public void setRe_resolved(LocalDateTime re_resolved) {
 	this.re_resolved = re_resolved;
 }
 
