@@ -11,10 +11,13 @@ public interface ReimbursementInterface {
 	public void addReimbursement (Reimbursement reimbursement );
 	
 	//need to fix here and in the DAO
-//	public Reimbursement selectReimByStatus(Reimbursement reimbursement);
+	public List<Reimbursement> selectReimByStatus();
 	
+	public boolean removeReim(int re_id);
 	
 	//update reimbursements for the fianace mangers 
 
-	public List<Reimbursement> getReimbursements(Reimbursement reimbursement);
+	public List<Reimbursement> getReimbursements();
+
+	
 }

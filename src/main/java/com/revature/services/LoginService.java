@@ -10,7 +10,8 @@ public boolean login(String user_name, String user_password) {
 		if(user_name.equals(" ") && user_password.equals(" ")) {
 			return true;
 		}
-		
+	else {
 		return false;
 	}
+}
 }

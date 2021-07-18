@@ -4,18 +4,19 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+import com.revature.models.User;
 import com.revature.models.UserRole;
 import com.revature.utils.HibernateUtil;
 
 public class UserRoleDAO implements UserRoleInterface {
 
 	@Override
-	public UserRole getUser_role_id(int re_id) {
+	public UserRole getUser_role_id(int user_role_id) {
 				//use this to start a new hibernate sesssion
 				Session ses = HibernateUtil.getSession();
 				
 				//get the role  based on the id for the role by using the get method
-				UserRole role = ses.get(UserRole.class, re_id);
+				UserRole role = ses.get(UserRole.class, user_role_id);
 				
 				//close the hibernate session
 				HibernateUtil.closeSession();
@@ -23,6 +24,20 @@ public class UserRoleDAO implements UserRoleInterface {
 				return role;
 	}
 
+	//this this in the user role class so the method needs to be in the user role dao
+		public List<User> getAllUser(){
+			//use this to start a new hibernate sesssion
+			Session ses = HibernateUtil.getSession();
+			
+			//getting the list of roles with a query
+			List<User> allUser = ses.createQuery("from User").list();
+			
+			//close the hibernate session
+			HibernateUtil.closeSession();
+			
+			//return the list of roles from data base
+			return allUser;
+		}
 	@Override
 	public List<UserRole> getAllRole() {
 				//use this to start a new hibernate sesssion

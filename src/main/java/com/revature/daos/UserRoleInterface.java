@@ -8,7 +8,7 @@ public interface UserRoleInterface {
 //if I want CRUD for the roles
 	
 	//might do a get role by id most likely will have to change models though
-	public UserRole getUser_role_id(int re_id);
+	public UserRole getUser_role_id(int user_role_id);
 	
 	//to just get the role might not need this
 	//public UserRole getUser_role(String user_role);

@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.LoginController;
 import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UserController;
 
 //this is the front controller - ALL requests that come in will have to hit this first.
 	public class MasterServlet extends HttpServlet {
 
 		private ReimbursementController rc = new ReimbursementController();
 		private LoginController lc = new LoginController();
+		private UserController uc = new UserController();
 		
 		protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 			
@@ -31,14 +33,13 @@ import com.revature.controllers.ReimbursementController;
 			
 			String URI = req.getRequestURI().replace("/P1-Chani-Kinsler/", "");
 			//getting the request URI, and stripping out the base URL
-			//so we'll just be left with the endpoint (e.g. "avengers", "login") to use in a switch
+			//so we'll just be left with the endpoint (e.g. "reimbursements", "login") to use in a switch
 			
 			switch(URI) {
 			
 			case "reimbursements": //adding functionality to make the user have to log in before accessing all avengers
-			
-					rc.getReimbursements(res); //doGet all avengers
-				
+			//need to correct the methoda in the controller
+					rc.getReimbursements(res); //doGet all reimbursements
 				break;
 				
 			case "login": 
@@ -46,6 +47,19 @@ import com.revature.controllers.ReimbursementController;
 				lc.login(req, res);
 				break;
 				
+				//need a case for adding reimbursements
+			case "addReimbursements":
+				rc.addReimbursement(res);
+				
+				//need a case for filter by status
+			case "pendingStatus":
+				rc.selectReimByStatus(res);
+			
+				//user controller get all user method
+			case "allUsers":
+				uc.getAllUser(res);
+				
+				//need the controller and service set up for this reimbursement dao so I can add case here
 			}
 			
 		}
@@ -59,5 +73,9 @@ import com.revature.controllers.ReimbursementController;
 			//there is one switch statement in this Servlet.
 			//and we'll differentiate get from post in the controllers instead of the servlet.
 			
+			//I will have to double check but I think I need this in here like it is in doGEt
+			res.setContentType("application/json");
+			res.setStatus(404);
+			String URI = req.getRequestURI().replace("/P1-Chani-Kinsler/", "");
 		}
 }

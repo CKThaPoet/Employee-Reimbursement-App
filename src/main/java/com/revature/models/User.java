@@ -46,6 +46,7 @@ private	UserRole user_role;	//might need to fix this... despite iam mighting cha
 
 
 //one user can have many reimbursements
+//might need to correct this because of confusion 
 @OneToMany (mappedBy="re_author",fetch = FetchType.EAGER)
 private List<Reimbursement> reimbursements;
 
@@ -239,12 +240,12 @@ public void setUser_email(String user_email) {
 }
 
 
-public UserRole getUser_roles() {
+public UserRole getUser_role() {
 	return user_role;
 }
 
 
-public void setUser_roles(UserRole user_role) {
+public void setUser_role(UserRole user_role) {
 	this.user_role = user_role;
 }
 

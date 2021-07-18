@@ -1,8 +1,11 @@
 package com.revature.daos;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.revature.models.User;
+import com.revature.models.UserRole;
 import com.revature.utils.HibernateUtil;
 
 public class UserDAO implements UserInterface{
@@ -17,19 +20,20 @@ public class UserDAO implements UserInterface{
 		HibernateUtil.closeSession(); //Close our Session (not super necessary here, but good practice)
 		
 	}
-
-	@Override
-	public void updateUser(User user) {
-		Session ses = HibernateUtil.getSession();
-		
-		ses.merge(user); //this will update the entire book record in the database, if it exists
-		
-		
-		//update() would throw an error if the book object already existed in Hibernate's cache
-		//hence why  merge() is safer
-		
-		HibernateUtil.closeSession(); //Close our Session (not super necessary here, but good practice)
-	}
+	
+	
+//	@Override
+//	public void updateUser(User user) {
+//		Session ses = HibernateUtil.getSession();
+//		
+//		ses.merge(user); //this will update the entire book record in the database, if it exists
+//		
+//		
+//		//update() would throw an error if the book object already existed in Hibernate's cache
+//		//hence why  merge() is safer
+//		
+//		HibernateUtil.closeSession(); //Close our Session (not super necessary here, but good practice)
+//	}
 	
 	@Override
 	public User getUser_Id(int user_id) {
@@ -48,4 +52,6 @@ public class UserDAO implements UserInterface{
 			HibernateUtil.closeSession();
 			return true;
 		} 
+	
+	
 }
