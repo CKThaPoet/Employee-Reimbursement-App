@@ -25,7 +25,7 @@ private	int re_id;
 
 //many authors  have one user id
 @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-@JoinColumn(name = "re_author")
+@JoinColumn(name = "re_author") //this is the user id in the table.getFirst_name() + " " + author.getLast_name() + "]";
 private User re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
 
 //had author as string changed it to match user id table	
@@ -44,7 +44,7 @@ private	 String re_description;
 
 //many  reimbursements can be resloved by one  user_id (many reimbursements can be resolved by one user)***************ASK BEN AGAIN LOL
 @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-@JoinColumn(name = "re_resolver")
+@JoinColumn(name = "re_resolver") //this is the user id
 private	User re_resolver; //REFERENCES users (user_id) fix this for the relationships
 
 @Column(name = "re_resolved")
@@ -117,14 +117,15 @@ public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, 
 	this.reimbursement_status = reimbursement_status;
 }
 
-
-
+//tried to fix the stack overflow error I have by doing what ben did in the hibernate demo 
+//I had to add it to re_authour and re_reslover because they both refer to the user id  in the user class
+//hmmm.... I think I can do the same thing with the status and the type using the getters
 @Override
 public String toString() {
-	return "Reimbursement [re_id=" + re_id + ", re_author=" + re_author + ", re_submmited=" + re_submmited
-			+ ", re_amount=" + re_amount + ", reimbursement_type=" + reimbursement_type + ", re_description="
-			+ re_description + ", re_resolver=" + re_resolver + ", re_resolved=" + re_resolved
-			+ ", reimbursement_status=" + reimbursement_status + "]";
+	return "Reimbursement [re_id=" + re_id + ", re_author=" + re_author.getUser_first_name() + " " + re_author.getUser_last_name() + "]" + ", re_submmited=" + re_submmited
+			+ ", re_amount=" + re_amount + ", reimbursement_type=" + reimbursement_type.getRe_type() + ", re_description="
+			+ re_description + ", re_resolver=" + re_resolver.getUser_first_name() + " " + re_resolver.getUser_last_name() + "]" + ", re_resolved=" + re_resolved
+			+ ", reimbursement_status=" + reimbursement_status.getRe_status() + "]";
 }
 
 

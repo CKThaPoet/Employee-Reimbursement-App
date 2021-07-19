@@ -39,11 +39,12 @@ public class ReimbursementController {
 	public List<Reimbursement> selectReimByStatus(HttpServletResponse res) throws IOException {
 		
 		List<Reimbursement> pending = rs.selectReimByStatus();
-		String pstatus = null;
+		
 
-		pstatus = om.writeValueAsString(pending);
+		String pstatus = om.writeValueAsString(pending);
 		
 		res.getWriter().print(pstatus);
 		res.setStatus(200);
+		
 	}
 }

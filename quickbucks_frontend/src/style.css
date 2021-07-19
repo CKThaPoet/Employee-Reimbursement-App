@@ -1,0 +1,16 @@
+.card-img {
+  max-height: 3in;
+}
+
+.navbar {
+  position: relative;
+  margin: 0 auto;
+}
+
+.table {
+  color: white;
+}
+
+.submitButton {
+  float: right;
+}

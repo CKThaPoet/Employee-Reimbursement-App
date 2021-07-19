@@ -50,14 +50,17 @@ import com.revature.controllers.UserController;
 				//need a case for adding reimbursements
 			case "addReimbursements":
 				rc.addReimbursement(res);
+				break;
 				
 				//need a case for filter by status
 			case "pendingStatus":
 				rc.selectReimByStatus(res);
+				break;
 			
 				//user controller get all user method
 			case "allUsers":
 				uc.getAllUser(res);
+				break;
 				
 				//need the controller and service set up for this reimbursement dao so I can add case here
 			}

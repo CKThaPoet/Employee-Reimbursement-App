@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.List;
+
 import com.revature.daos.ReimbursementDAO;
 import com.revature.daos.ReimbursementStatusDAO;
 import com.revature.daos.ReimbursementTypeDAO;
@@ -83,6 +85,14 @@ public class Lanucher {
 //		rDAO.addReimbursement(r1);
 //		rDAO.addReimbursement(r2);
 //		rDAO.addReimbursement(r3);
+		
+		//trying getting all the reimbursements
+		List<Reimbursement> rlist = rDAO.getReimbursements();
+		
+		//use a enhanced for loop to get the list
+		for(Reimbursement r : rlist) {
+		System.out.println(r);
+		}
 	}
 
 }

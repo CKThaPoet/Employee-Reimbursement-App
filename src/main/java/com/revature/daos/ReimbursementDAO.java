@@ -23,9 +23,15 @@ public class ReimbursementDAO implements ReimbursementInterface {
 //	*NEED TO FIX THIS ONE*
 	//using the list of reimbursement then getters to get in id and if it has the id for pending return using a for loop
 	
+	
+	//fix this iam not using the session
 	@Override
 	public List<Reimbursement> selectReimByStatus() {
 		Session ses = HibernateUtil.getSession();
+		
+		//Using HQL! Hibernate Query Language it references the Java class, not the DB table
+		//probably should do it this way
+	//  List<Reimbursement> allList = ses.createQuery("FROM Reimbursement where reimbursement_status = 1 ").list(); //at the end, we turn the Query object into a List
 		
 		//used method from get all reimbursements
 		List<Reimbursement> allList = getReimbursements();
@@ -71,10 +77,8 @@ public class ReimbursementDAO implements ReimbursementInterface {
 		Session ses = HibernateUtil.getSession();
 		
 		//Using HQL! Hibernate Query Language it references the Java class, not the DB table
-		
-		
+			
 		List<Reimbursement> allList = ses.createQuery("FROM Reimbursement").list(); //at the end, we turn the Query object into a List
-		
 		
 		HibernateUtil.closeSession();
 		//for (Reimbursement r : allList) {

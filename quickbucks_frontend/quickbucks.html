@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBucks</title>
+  <!--added bootstrap to my html-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!--added responsive meta tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <!--applied fuild so it will the container will span the entire width of the viewpoint-->
+<div class="container-fluid">
+  <div class="card bg-dark text-white">
+    <img src="images/cheetah_black&white.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+      <h1 class="card-title">QuickBucks</h1>
+      <p class="card-text">This is a Employee Reimbursement Application.</p>
+      <p class="card-text">Please sign in to use the aplication</p>
+      <div class= "submitButton">
+           <button type="Button" class="btn btn-primary btn-lg">Submit</button>
+          </div>
+          <div class ="loginForm">
+      <input id="username" type="text" placeholder="username" class="col-sm-4 form-control">
+            <input id="password" type="password" placeholder="password" class="col-sm-4 form-control">  
+            <button id="loginButton" class="btn btn-dark">Login</button>
+           </div>
+           
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">View All Reimbursements</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">add a Reimbursements</a>
+        <a class="nav-item nav-link" href="#">View Pending Status</a>
+        <a class="nav-item nav-link" href="#">View All Users</a>
+        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="table-responsive table-hover table-dark">
+    <table class="table custom-table">
+    <thead>
+    <tr>
+    <th scope="col">
+    <label class="control control--checkbox">
+    <input type="checkbox" class="js-check-all" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Submmited</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Type</th>
+    <th scope="col">Description</th>
+    <th scope="col">Resolver</th>
+    <th scope="col">Resolved</th>
+    <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr scope="row">
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>
+    1392
+    </td>
+    <td><a href="#">James Yates</a></td>
+    <td>
+    Web Designer
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+63 983 0962 971</td>
+    <td>NY University</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>4616</td>
+    <td><a href="#">Matthew Wasil</a></td>
+    <td>
+    Graphic Designer
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+02 020 3994 929</td>
+    <td>London College</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>9841</td>
+    <td><a href="#">Sampson Murphy</a></td>
+    <td>
+    Mobile Dev
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+01 352 1125 0192</td>
+    <td>Senior High</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>9548</td>
+    <td><a href="#">Gaspar Semenov</a></td>
+    <td>
+    Illustrator
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+92 020 3994 929</td>
+    <td>College</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>4616</td>
+    <td><a href="#">Matthew Wasil</a></td>
+    <td>
+    Graphic Designer
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+02 020 3994 929</td>
+    <td>London College</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>9841</td>
+    <td><a href="#">Sampson Murphy</a></td>
+    <td>
+    Mobile Dev
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+01 352 1125 0192</td>
+    <td>Senior High</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    <tr class="spacer"><td colspan="100"></td></tr>
+    <tr>
+    <th scope="row">
+    <label class="control control--checkbox">
+    <input type="checkbox" />
+    <div class="control__indicator"></div>
+    </label>
+    </th>
+    <td>9548</td>
+    <td><a href="#">Gaspar Semenov</a></td>
+    <td>
+    Illustrator
+    <small class="d-block">Far far away, behind the word mountains</small>
+    </td>
+    <td>+92 020 3994 929</td>
+    <td>College</td>
+    <td class = "des"> pending </td>
+    <td class = "Resolver"> pending </td>
+    <td class ="Resolved"> pending </td>
+    <td class = "Status"> pending </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+</div>
+<script src="src/quickbucks.js"></script>
+</body>
+</html>
