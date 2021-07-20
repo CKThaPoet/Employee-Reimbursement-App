@@ -34,7 +34,8 @@ import com.revature.controllers.UserController;
 			String URI = req.getRequestURI().replace("/P1-Chani-Kinsler/", "");
 			//getting the request URI, and stripping out the base URL
 			//so we'll just be left with the endpoint (e.g. "reimbursements", "login") to use in a switch
-			
+			System.out.println(URI);
+			System.out.println("please work lol");
 			switch(URI) {
 			
 			case "reimbursements": //adding functionality to make the user have to log in before accessing all avengers

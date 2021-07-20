@@ -9,7 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators; // had to manually import
+
 @Entity
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class, 
+		property = "re_type_id") // had to add this annotation to use hibernate with jackson 
 @Table(name = "reimbursement_type")
 public class ReimbursementType {
 

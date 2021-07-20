@@ -1,6 +1,5 @@
 package com.revature.models;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -14,7 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators; // had to manually import
+
 @Entity
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class, 
+		property = "re_id") // had to add this annotation to use hibernate with jackson 
 @Table(name = "reimbursements")
 public class Reimbursement {
 
@@ -28,9 +33,6 @@ private	int re_id;
 @JoinColumn(name = "re_author") //this is the user id in the table.getFirst_name() + " " + author.getLast_name() + "]";
 private User re_author; //REFERENCES users (user_id), fix for relationship //might need to be fixed possible be an int
 
-//had author as string changed it to match user id table	
-@Column(name = "re_submmited")
-private	 LocalDateTime re_submmited; //date i changed from string to local datetime
 
 @Column(name = "re_amount")
 private	 int re_amount;
@@ -46,9 +48,6 @@ private	 String re_description;
 @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 @JoinColumn(name = "re_resolver") //this is the user id
 private	User re_resolver; //REFERENCES users (user_id) fix this for the relationships
-
-@Column(name = "re_resolved")
-private	LocalDateTime re_resolved; //date    <<<<<<<<<<<<<<*NEED TO CHANGE THIS TO LOCAL DATE TIME AS WELL*
 
 //many reimbursements have one status id
 @ManyToOne(fetch = FetchType.EAGER)
@@ -66,37 +65,33 @@ public Reimbursement() {
 
 
 
-public Reimbursement(int re_id, LocalDateTime re_resolved, ReimbursementStatus reimbursement_status) {
+public Reimbursement(int re_id,  ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_id = re_id;
-	this.re_resolved = re_resolved;
 	this.reimbursement_status = reimbursement_status;
 }
 
 
 
-public Reimbursement(int re_id, User re_author, LocalDateTime re_submmited, int re_amount,
-		ReimbursementType reimbursement_type, String re_description, User re_resolver, LocalDateTime re_resolved,
+public Reimbursement(int re_id, User re_author, int re_amount,
+		ReimbursementType reimbursement_type, String re_description, User re_resolver,
 		ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_id = re_id;
 	this.re_author = re_author;
-	this.re_submmited = re_submmited;
 	this.re_amount = re_amount;
 	this.reimbursement_type = reimbursement_type;
 	this.re_description = re_description;
 	this.re_resolver = re_resolver;
-	this.re_resolved = re_resolved;
 	this.reimbursement_status = reimbursement_status;
 }
 
 
 
-public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
+public Reimbursement(User re_author, int re_amount, ReimbursementType reimbursement_type,
 		String re_description) {
 	super();
 	this.re_author = re_author;
-	this.re_submmited = re_submmited;
 	this.re_amount = re_amount;
 	this.reimbursement_type = reimbursement_type;
 	this.re_description = re_description;
@@ -104,36 +99,37 @@ public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, 
 
 
 
-public Reimbursement(User re_author, LocalDateTime re_submmited, int re_amount, ReimbursementType reimbursement_type,
-		String re_description, User re_resolver, LocalDateTime re_resolved, ReimbursementStatus reimbursement_status) {
+public Reimbursement(User re_author,  int re_amount, ReimbursementType reimbursement_type,
+		String re_description, User re_resolver,  ReimbursementStatus reimbursement_status) {
 	super();
 	this.re_author = re_author;
-	this.re_submmited = re_submmited;
 	this.re_amount = re_amount;
 	this.reimbursement_type = reimbursement_type;
 	this.re_description = re_description;
 	this.re_resolver = re_resolver;
-	this.re_resolved = re_resolved;
 	this.reimbursement_status = reimbursement_status;
 }
 
 //tried to fix the stack overflow error I have by doing what ben did in the hibernate demo 
 //I had to add it to re_authour and re_reslover because they both refer to the user id  in the user class
 //hmmm.... I think I can do the same thing with the status and the type using the getters
+
+
+
 @Override
 public String toString() {
-	return "Reimbursement [re_id=" + re_id + ", re_author=" + re_author.getUser_first_name() + " " + re_author.getUser_last_name() + "]" + ", re_submmited=" + re_submmited
-			+ ", re_amount=" + re_amount + ", reimbursement_type=" + reimbursement_type.getRe_type() + ", re_description="
-			+ re_description + ", re_resolver=" + re_resolver.getUser_first_name() + " " + re_resolver.getUser_last_name() + "]" + ", re_resolved=" + re_resolved
-			+ ", reimbursement_status=" + reimbursement_status.getRe_status() + "]";
+	return "Reimbursement [re_id=" + re_id + ", re_author=" + re_author.getUser_first_name() + " " + re_author.getUser_last_name() + "]" + ", re_amount=" + re_amount
+			+ ", reimbursement_type=" + reimbursement_type + ", re_description=" + re_description + ", re_resolver="
+			+ re_resolver.getUser_first_name() +" " + re_resolver.getUser_last_name() + "]" + ", reimbursement_status=" + reimbursement_status + "]";
 }
+
 
 
 
 @Override
 public int hashCode() {
-	return Objects.hash(re_amount, re_author, re_description, re_id, re_resolved, re_resolver, re_submmited,
-			reimbursement_status, reimbursement_type);
+	return Objects.hash(re_amount, re_author, re_description, re_id, re_resolver, reimbursement_status,
+			reimbursement_type);
 }
 
 
@@ -149,12 +145,10 @@ public boolean equals(Object obj) {
 	Reimbursement other = (Reimbursement) obj;
 	return re_amount == other.re_amount && Objects.equals(re_author, other.re_author)
 			&& Objects.equals(re_description, other.re_description) && re_id == other.re_id
-			&& Objects.equals(re_resolved, other.re_resolved) && Objects.equals(re_resolver, other.re_resolver)
-			&& Objects.equals(re_submmited, other.re_submmited)
+			&& Objects.equals(re_resolver, other.re_resolver)
 			&& Objects.equals(reimbursement_status, other.reimbursement_status)
 			&& Objects.equals(reimbursement_type, other.reimbursement_type);
 }
-
 
 
 public int getRe_id() {
@@ -177,18 +171,6 @@ public User getRe_author() {
 
 public void setRe_author(User re_author) {
 	this.re_author = re_author;
-}
-
-
-
-public LocalDateTime getRe_submmited() {
-	return re_submmited;
-}
-
-
-
-public void setRe_submmited(LocalDateTime re_submmited) {
-	this.re_submmited = re_submmited;
 }
 
 
@@ -238,19 +220,6 @@ public User getRe_resolver() {
 public void setRe_resolver(User re_resolver) {
 	this.re_resolver = re_resolver;
 }
-
-
-
-public LocalDateTime getRe_resolved() {
-	return re_resolved;
-}
-
-
-
-public void setRe_resolved(LocalDateTime re_resolved) {
-	this.re_resolved = re_resolved;
-}
-
 
 
 public ReimbursementStatus getReimbursement_status() {

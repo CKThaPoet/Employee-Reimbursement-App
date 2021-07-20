@@ -51,7 +51,14 @@ public class UserDAO implements UserInterface{
 			ses.delete(userGone);
 			HibernateUtil.closeSession();
 			return true;
-		} 
+		}
+
+
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
 	
 	
 }

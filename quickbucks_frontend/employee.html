@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee View</title>
+  <!--added bootstrap to my html-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--link my css I might have multiple-->
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card bg-dark text-white">
+      <img src="images/cheetah_black&white.jpg" class="card-img" alt="">
+      <div class="card-img-overlay">
+        <h1 class="card-title">QuickBucks</h1>
+        <p class="card-text">This is a Employee Reimbursement Application.</p>
+        <p class="card-text">Please sign in to use the aplication</p>
+        
+            <div class ="loginForm">
+        <input id="username" type="text" placeholder="username" class="col-sm-4 form-control">
+              <input id="password" type="password" placeholder="password" class="col-sm-4 form-control">  
+              <button id="loginButton" class="btn btn-dark">Login</button>
+             </div>
+             
+      </div>
+    </div>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="employee.html">add a Reimbursements</a>
+          <a class="nav-item nav-link" href="#">View Pending Status</a>
+          <a class="nav-item nav-link" href="#">View All Users</a>
+          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+      </div>
+    </nav>
+    <button type="button" class="requestButton btn-success btn-lg">Request Reimbursement</button>
+    <button type="button" class="submitButton btn-primary btn-lg">Complete</button>
+
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Type</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Example multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </form>
+
+
+  </div>
+  <!--might need multiple js. files the orignal is getting big-->
+  <script src="src/quickbucks.js"></script>
+  <script src="src/employee.js"></script>
+</body>
+</html>

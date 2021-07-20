@@ -28,7 +28,7 @@ public class UserController {
 	}	
 	
 	//errors fix
-	public List<User> getAllUser(HttpServletResponse res) throws IOException{
+	public void  getAllUser(HttpServletResponse res) throws IOException{
 		List<User> allUsers = us.getAllUser();
 		
 		String json = om.writeValueAsString(allUsers); //turn the list into a JSON String

@@ -24,69 +24,55 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
         let data = await response.json(); //get the JSON data from the response, turn it into JS object
 
 
-        //now, I want to put each avenger into my table
+        //now, I want to put each reimbursement into my table
 
         //need to fix and double check if I need to put it in order by the java or how it is in the table
-        for(let avenger of data) { //for every avenger in the data variable/object
+        for(let reimbursement of data) { //for every avenger in the data variable/object
 
-            console.log(avenger); //just for debug, print the avenger in the console
+            console.log(reimbursement); //just for debug, print the avenger in the console
 
             let row = document.createElement("tr"); //create a table row
 
             let cell = document.createElement("td"); //create a cell for the field
-            cell.innerHTML = quickbucks.re_id; //fill the cell with avenger data
+            cell.innerHTML = reimbursement.re_id; //fill the cell with avenger data
             row.appendChild(cell) //this row now has the first cell (av_id)
 
             //the we'll do this^ for each field in the avenger model
             let cell2 = document.createElement("td");
-            cell2.innerHTML = quickbucks.re_authour;
+            cell2.innerHTML = reimbursement.re_authour;
             row.appendChild(cell2);
 
             let cell3 = document.createElement("td");
-            cell3.innerHTML = quickbucks.re_submmited;
+            cell3.innerHTML = reimbursement.re_description;
             row.appendChild(cell3);
 
             let cell4 = document.createElement("td");
-            cell4.innerHTML = quickbucks.re_amount;
+            cell4.innerHTML = reimbursement.reimbursement_type;
             row.appendChild(cell4);
 
             let cell5 = document.createElement("td");
-            cell5.innerHTML = quickbucks.reimbursement_type;
+            cell5.innerHTML = reimbursement.re_amount;
             row.appendChild(cell5);
 
-            let cell6 = document.createElement("td");
-            cell6.innerHTML = avenger.re_description;
-            row.appendChild(cell6);
-
-            if(quickbucks.re_resolver != null){
+            if(reimbursement.re_resolver != null){
               console.log("has a resolver")
-              let cell7 = document.createElement("td");
-              cell7.innerHTML = quickbucks.re_resolver;
-              row.appendChild(cell7);
+              let cell6 = document.createElement("td");
+              cell6.innerHTML = reimbursement.re_resolver;
+              row.appendChild(cell6);
           } else { //otherwise, still append the cell but leave it empty
-              let cell7 = document.createElement("td");
-              row.appendChild(cell7);
+              let cell6 = document.createElement("td");
+              row.appendChild(cell6);
           }
 
-          if(quickbucks.re_resolved != null){
-            console.log("has a resolver")
-            let cell8 = document.createElement("td");
-            cell8.innerHTML = quickbucks.re_resolved;
-            row.appendChild(cell8);
-        } else { //otherwise, still append the cell but leave it empty
-            let cell8 = document.createElement("td");
-            row.appendChild(cell8);
-        }
-
             //if the avenger has a home, just fill the cell with the home name
-            if(quickbucks.reimbursement_status != null){
+            if(reimbursement.reimbursement_status != null){
                 console.log("home came through")
-                let cell9 = document.createElement("td");
-                cell7.innerHTML = quickbucks.reimbursement_status;
-                row.appendChild(cell9);
+                let cell7 = document.createElement("td");
+                cell7.innerHTML = reimbursement.reimbursement_status;
+                row.appendChild(cell7);
             } else { //otherwise, still append the cell but leave it empty
-                let cell9 = document.createElement("td");
-                row.appendChild(cell9);
+                let cell7 = document.createElement("td");
+                row.appendChild(cell7);
             }
 
 

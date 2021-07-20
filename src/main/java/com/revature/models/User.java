@@ -15,8 +15,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators; // had to manually import
+
 @Entity
 @Table(name = "users")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class, 
+		property = "user_id") // had to add this annotation to use hibernate with jackson 
 public class User {
 
 @Id //this makes a field the primary key

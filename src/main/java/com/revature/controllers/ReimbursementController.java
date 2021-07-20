@@ -23,6 +23,7 @@ public class ReimbursementController {
 		
 		List<Reimbursement>  re_all = rs.getReimbursements(); //get the method from the dao method
 		
+		//this is most likely the issue
 		String json = om.writeValueAsString(re_all); //turn the list into a JSON String
 		
 		res.getWriter().print(json); //put the JSON into the response object
@@ -36,7 +37,7 @@ public class ReimbursementController {
 	}
 	
 	//fix this have errors
-	public List<Reimbursement> selectReimByStatus(HttpServletResponse res) throws IOException {
+	public void selectReimByStatus(HttpServletResponse res) throws IOException {
 		
 		List<Reimbursement> pending = rs.selectReimByStatus();
 		
@@ -45,6 +46,7 @@ public class ReimbursementController {
 		
 		res.getWriter().print(pstatus);
 		res.setStatus(200);
+		
 		
 	}
 }
