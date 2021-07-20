@@ -2,6 +2,8 @@ package com.revature;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.revature.daos.ReimbursementDAO;
 import com.revature.daos.ReimbursementStatusDAO;
 import com.revature.daos.ReimbursementTypeDAO;
@@ -13,6 +15,7 @@ import com.revature.models.User;
 
 import com.revature.daos.UserRoleDAO;
 import com.revature.models.UserRole;
+import com.revature.utils.HibernateUtil;
 
 public class Lanucher {
 
@@ -87,12 +90,18 @@ public class Lanucher {
 //		rDAO.addReimbursement(r3);
 		
 		//trying getting all the reimbursements
-		List<Reimbursement> rlist = rDAO.getReimbursements();
+//		List<Reimbursement> rlist = rDAO.getReimbursements();
 		
 		//use a enhanced for loop to get the list
-		for(Reimbursement r : rlist) {
-		System.out.println(r);
-		}
+//		for(Reimbursement r : rlist) {
+//		System.out.println(r);
+//		}
+		
+		//interesting it prints the users and their info and the reimbursements id's and the reimbursements they sumbited 
+//		Session ses = HibernateUtil.getSession();
+//		
+//		List<User> u = ses.createQuery("from User").list();
+//		System.out.println(u);
 	}
 
 }

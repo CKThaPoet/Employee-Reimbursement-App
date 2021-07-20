@@ -30,5 +30,17 @@ public class ReimbursementStatusDAO {
 			HibernateUtil.closeSession();
 
 		}
+		
+		public ReimbursementStatus getStatus(int id) 
+		{
+			//open a new sesssion
+			Session ses = HibernateUtil.getSession();
+			//get the status code based on the id
+			ReimbursementStatus status = ses.get(ReimbursementStatus.class, id);
+			//close the session
+//			ses.close();
+			HibernateUtil.closeSession();
+			//return the status object
+			return status;
 }
-
+}

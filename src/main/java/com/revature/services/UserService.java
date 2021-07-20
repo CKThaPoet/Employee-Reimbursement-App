@@ -47,4 +47,7 @@ public class UserService {
 		public List<User> getAllUser(){
 			return urDAO.getAllUser();
 		}
+		public User getByUserName(String user_name) {
+			return uDAO.getByUserName(user_name);
+		}
 }

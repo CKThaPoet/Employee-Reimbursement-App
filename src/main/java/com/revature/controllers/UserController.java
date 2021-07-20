@@ -35,6 +35,6 @@ public class UserController {
 		
 		res.getWriter().print(json); //put the JSON into the response object
 		
-		res.setStatus(200); //override the default 404 error we set in the MasterServlet
+		res.setStatus(200);
 	}
 }

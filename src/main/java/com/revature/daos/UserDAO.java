@@ -52,12 +52,36 @@ public class UserDAO implements UserInterface{
 			HibernateUtil.closeSession();
 			return true;
 		}
+	
+	@Override 
+	public User getByUserName(String user_name)
+	{
+		Session ses = HibernateUtil.getSession();
+		//simlar to the select by status method
+		List<User> userList = ses.createQuery("from User").list();
+		
+		User user = new User();
+		for(User u: userList)
+		{
+			if(u.getUser_name().compareTo(user_name) == 0)
+			{
+				user = u;
+			}
+		}
+		
+		return user;
+	}
 
 
 	@Override
 	public List<User> getAllUser() {
-		// TODO Auto-generated method stub
-		return null;
+		Session ses = HibernateUtil.getSession();
+		
+		List<User> userList = ses.createQuery("from User").list();
+		
+		HibernateUtil.closeSession();
+		
+		return userList;
 	} 
 	
 	

@@ -17,4 +17,6 @@ public interface UserInterface {
 	
 	public List<User> getAllUser();
 	
+	public User getByUserName(String user_name);
+	
 }
