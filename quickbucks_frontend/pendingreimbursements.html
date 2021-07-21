@@ -25,6 +25,9 @@
             <input id="password" type="password" placeholder="password" class="col-sm-4 form-control">  
             <button id="loginButton" class="btn btn-dark">Login</button>
             <button id = "buttonAll" type="button" class="btn btn-primary">VIEW</button>
+            <button type="button" class="submitButton btn-danger btn-lg" id="denyButton">Deny</button>
+            <button type="button" class= "submitButton btn-success btn-lg" id="approveButton">Approve</button>
+            
            </div>
            
     </div>
@@ -37,7 +40,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View Reimbursements <span class="sr-only">(current)</span></a>
+        <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="employee.html">Submit Reimbursement</a>
         <a class="nav-item nav-link" href="pendingreimbursements.html">View Pending Status</a>
         <a class="nav-item nav-link" href="userlist.html">View All Users</a>
@@ -50,7 +53,7 @@
     <table class="table custom-table">
     <thead>
     <tr>
-    
+      <th scope="col">Select</th>
     <th scope="col">ID</th>
     <th scope="col">Name</th>
     <th scope="col">Description</th>
@@ -62,29 +65,33 @@
     </thead>
     <tbody id= "allInfo">
     <tr scope="row">
-    
-    <td class="databaseId">
-    1392
-    </td>
+      <th scope="row">
+        <label class="control control--checkbox">
+        <input type="checkbox">
+        <div class="control__indicator"></div>
+        </label>
+        <td class="databaseId">1392</td>
     <td class = "username"><a href="#">James Yates</a></td>
     <td class = "des">
-    Web Designer
-    <small class="d-block">Far far away, behind the word mountains</small>
+    Californa
+    <small class="d-block">Work Retreat</small>
     </td>
     <td class = "remType">Lodging</td>
     <td class ="cost">2000</td>
     <td class = "Resolver"> pending </td>
     <td class = "Status"> pending </td>
     </tr>
+  </th>
     <tr class="spacer"><td colspan="100"></td></tr>
+      
+    
 
 
     </tbody>
     </table>
     </div>
     </div>
-    </div>
-</div>
+    
 <script src="src/quickbucks.js"></script>
 </body>
 </html>

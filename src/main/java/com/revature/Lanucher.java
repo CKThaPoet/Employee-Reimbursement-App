@@ -53,18 +53,19 @@ public class Lanucher {
 		
 	
 //		//set user using the dao methods
-//		
+		
 //		uDAO.addUser(u1);
 //		uDAO.addUser(u2);
 //		uDAO.addUser(u3);
+//		uDAO.addUser(u4);
 
 	
-//		
+		
 //		ReimbursementType rt1 = new ReimbursementType("Food");
 //		ReimbursementType rt2 = new ReimbursementType("Lodging");
 //		ReimbursementType rt3 = new ReimbursementType("Travel");
 //		ReimbursementType rt4 = new ReimbursementType("Other");
-//		
+	
 //		rtDAO.addType(rt1);
 //		rtDAO.addType(rt2);
 //		rtDAO.addType(rt3);
@@ -79,10 +80,10 @@ public class Lanucher {
 //		rsDAO.addStatus(rs2);
 //		rsDAO.addStatus(rs3);
 		
-//		Reimbursement r1 = new Reimbursement(2,    200, 3, "Travel expenses to go to training in Georiga", u1 , 2  );
-//		Reimbursement r2 = new Reimbursement(3,    350, 2, "Hotel expenses to go to training in New York",u1  , 1);
-//		Reimbursement r3 = new Reimbursement(4,    100, 1, "Food expenses for fourth of July party", u1 ,  );
-////		
+//		Reimbursement r1 = new Reimbursement(u2,    200, rt3, "Travel expenses to go to training in Georiga", u1 , 2  );
+//		Reimbursement r2 = new Reimbursement(u3,    350, rt2, "Hotel expenses to go to training in New York",u1  , 1);
+//		Reimbursement r3 = new Reimbursement(u4,    100, rt1, "Food expenses for fourth of July party", u1 , 3 );
+		
 //		rDAO.addReimbursement(r1);
 //		rDAO.addReimbursement(r2);
 //		rDAO.addReimbursement(r3);

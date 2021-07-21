@@ -29,28 +29,43 @@
     </div>
   
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="home.html">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements<span class="sr-only">(current)</span></a>
+          <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View Reimbursements<span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="employee.html">add a Reimbursements</a>
-          <a class="nav-item nav-link" href="#">View Pending Status</a>
-          <a class="nav-item nav-link" href="#">View All Users</a>
+          <a class="nav-item nav-link" href="pendingreimbursements.html">View Pending Status</a>
+          <a class="nav-item nav-link" href="userlist.html">View All Users</a>
           <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
         </div>
       </div>
     </nav>
-    <button type="button" class="requestButton btn-success btn-lg">Request Reimbursement</button>
+    
+    <a class="requestButton btn-success btn-lg" href="employee.html" role="button" style="text-decoration: none;">Start New Request</a>
+  
     <button type="button" class="submitButton btn-primary btn-lg">Complete</button>
-
+  <br>
+  <br>
     <form>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      
+        <label for="exampleFormControlSelect1">Select Username</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>Mary_Jane</option>
+          <option>John_Doe</option>
+          <option>Mike_Larry</option>
+        </select>
       </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      
       <div class="form-group">
         <label for="exampleFormControlSelect1">Type</label>
         <select class="form-control" id="exampleFormControlSelect1">
@@ -61,25 +76,22 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+        
+        <label for="exampleFormControlInput1">How much do you need reimbursed to you</label>
+        
+          <span class="input-group-text">$</span>
+        
+        <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="amount">
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
       </div>
+      
     </form>
 
 
   </div>
   <!--might need multiple js. files the orignal is getting big-->
-  <script src="src/quickbucks.js"></script>
+ 
   <script src="src/employee.js"></script>
 </body>
 </html>

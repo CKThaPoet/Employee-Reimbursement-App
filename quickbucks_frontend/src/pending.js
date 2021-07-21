@@ -33,6 +33,10 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
             console.log(reimbursement); //just for debug, print the avenger in the console
 
             let row = document.createElement("tr"); //create a table row
+            
+        // let cell1 = document.createElement("td"); //create a cell for the field
+        //     cell1.innerHTML = <label class="control control--checkbox"><input type="checkbox"><div class="control__indicator"></div> </label> : 
+        //     row.appendChild(cell1)
 
             let cell = document.createElement("td"); //create a cell for the field
             cell.innerHTML = reimbursement.re_id; //fill the cell with avenger data

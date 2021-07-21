@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickBucks</title>
+  <title>QuickBucks/Users</title>
   <!--added bootstrap to my html-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   
@@ -17,8 +17,8 @@
     <img src="images/cheetah_black&white.jpg" class="card-img" alt="">
     <div class="card-img-overlay">
       <h1 class="card-title">QuickBucks</h1>
-      <p class="card-text">This is a Employee Reimbursement Application.</p>
-      <p id="logged">Please sign in to use the aplication</p>
+      <p class="card-text">Employee Reimbursement Application.</p>
+      <p id="logged">All Users curently in the system</p>
       
           <div class ="loginForm">
       <input id="username" type="text" placeholder="username" class="col-sm-4 form-control">
@@ -53,11 +53,10 @@
     
     <th scope="col">ID</th>
     <th scope="col">Name</th>
-    <th scope="col">Description</th>
-    <th scope="col">Type</th>
-    <th scope="col">Amount</th>
-    <th scope="col">Resolver</th>
-    <th scope="col">Status</th>
+    <th scope="col">Username</th>
+    <th scope="col">Email</th>
+    <th scope="col">Role</th>
+    
     </tr>
     </thead>
     <tbody id= "allInfo">
@@ -68,13 +67,11 @@
     </td>
     <td class = "username"><a href="#">James Yates</a></td>
     <td class = "des">
-    Web Designer
-    <small class="d-block">Far far away, behind the word mountains</small>
+    <small class="d-block">James_Yate</small>
     </td>
-    <td class = "remType">Lodging</td>
-    <td class ="cost">2000</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
+    <td class = "email">James_Yate@revature.com</td>
+    <td class ="cost">Web Designer</td>
+    
     </tr>
     <tr class="spacer"><td colspan="100"></td></tr>
 
@@ -85,6 +82,6 @@
     </div>
     </div>
 </div>
-<script src="src/quickbucks.js"></script>
+<script src="src/userlist.js"></script>
 </body>
 </html>
