@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.controllers.LoginController;
 import com.revature.controllers.ReimbursementController;
 import com.revature.controllers.UserController;
@@ -17,6 +20,8 @@ import com.revature.controllers.UserController;
 		private ReimbursementController rc = new ReimbursementController();
 		private LoginController lc = new LoginController();
 		private UserController uc = new UserController();
+		
+		final Logger log = LogManager.getLogger(MasterServlet.class); //create logger import and place method in object must pass in main class
 		
 		protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 			
@@ -41,6 +46,7 @@ import com.revature.controllers.UserController;
 			case "reimbursements": //adding functionality to make the user have to log in before accessing all avengers
 			//need to correct the methoda in the controller
 					rc.getReimbursements(res); //doGet all reimbursements
+					log.info("User getting the reimbursements");
 				break;
 				
 			case "login": 
