@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -14,13 +15,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators; // had to manually i
 
 @Entity
 @Table(name = "reimbursement_status")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class, 
+		property = "re_status_id") // had to add this annotation to use hibernate with jackson 
 public class ReimbursementStatus {
 
 @Id //this makes a field the primary key
 @GeneratedValue(strategy = GenerationType.IDENTITY) //this makes our primary key a serial data type
-@JsonIdentityInfo(
-		generator = ObjectIdGenerators.PropertyGenerator.class, 
-		property = "re_status_id") // had to add this annotation to use hibernate with jackson 
+
 @Column(name = "re_status_id") //the name can be different here for the data bases I left it the same	
 private int	re_status_id;
 

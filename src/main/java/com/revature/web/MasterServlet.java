@@ -50,7 +50,7 @@ import com.revature.controllers.UserController;
 				
 				//need a case for adding reimbursements
 			case "addReimbursements":
-				rc.addReimbursement(res);
+				rc.addReimbursement(req, res);
 				break;
 				
 				//need a case for filter by status

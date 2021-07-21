@@ -26,9 +26,9 @@ public class UserService {
 		
 		//error fix this
 		//create a method that sends the DAO data up to the controller (this method will be called by the controller)
-		public User addUser() {
-			return uDAO.addUser();
-		}
+//		public User addUser() {
+//			return uDAO.addUser();
+//		}
 		//literally all we're doing here is calling the method of the dao
 		
 //		public updateUser(User user) {

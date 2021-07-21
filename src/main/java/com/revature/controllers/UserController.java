@@ -16,16 +16,16 @@ public class UserController {
 	private ObjectMapper om = new ObjectMapper();
 	
 	//errors fix
-	public void getUsers_Id(HttpServletResponse res) throws IOException {
-		
-		User u = us.getUsers_Id(int user_id); //get the method from the service layer
-		
-		String json = om.writeValueAsString(u); //turn the list into a JSON String
-		
-		res.getWriter().print(json); //put the JSON into the response object
-		
-		res.setStatus(200); //override the default 404 error we set in the MasterServlet
-	}	
+//	public void getUsers_Id(HttpServletResponse res) throws IOException {
+//		
+//		User u = us.getUsers_Id(int user_id); //get the method from the service layer
+//		
+//		String json = om.writeValueAsString(u); //turn the list into a JSON String
+//		
+//		res.getWriter().print(json); //put the JSON into the response object
+//		
+//		res.setStatus(200); //override the default 404 error we set in the MasterServlet
+//	}	
 	
 	//errors fix
 	public void  getAllUser(HttpServletResponse res) throws IOException{

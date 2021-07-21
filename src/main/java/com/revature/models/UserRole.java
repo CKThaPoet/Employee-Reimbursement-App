@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,7 +32,7 @@ private	int user_role_id ;
 @Column(name = "user_role")
 private String user_role;
 
-//
+//one user can have many roles
 @OneToMany(mappedBy="user_role",fetch = FetchType.EAGER)
 private List<User> user;
 

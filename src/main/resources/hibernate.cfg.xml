@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?> <!-- This is our XMl version -->
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!-- This is our XMl version -->
 
 <!-- This is our doctype declaration -->
 <!DOCTYPE hibernate-configuration PUBLIC

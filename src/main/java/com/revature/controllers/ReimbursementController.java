@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +41,22 @@ public class ReimbursementController {
 		
 		List<Reimbursement>  re_all = rs.getReimbursements(); //get the method from the dao method
 		
+//		List<ReimbursementDTO> newall = new ArrayList<ReimbursementDTO>();
+		
+		//thanks kennth :)
+//		for(Reimbursement r : re_all) {
+//		ReimbursementDTO reimDTO = new ReimbursementDTO();
+//		System.out.println(r);
+//		reimDTO.setReimbursementId(String.valueOf (r.getRe_id()));
+//		reimDTO.setAmount(String.valueOf (r.getRe_amount()));
+//		reimDTO.setUser_name(String.valueOf (r.getRe_author().getUser_name()));
+//		reimDTO.setDescription(r.getRe_description());
+//		reimDTO.setManger(String.valueOf (r.getRe_resolver().getUser_name()));
+//		reimDTO.setStatus(String.valueOf (r.getReimbursement_status().getRe_status()));
+//		reimDTO.setType(String.valueOf (r.getReimbursement_type().getRe_type()));
+//		newall.add(reimDTO);
+//		}
+		//String json = null;
 		//this is most likely the issue
 		String json = om.writeValueAsString(re_all); //turn the list into a JSON String
 		
@@ -48,16 +65,14 @@ public class ReimbursementController {
 		res.setStatus(200); //override the default 404 error we set in the MasterServlet
 	}	
 	
-	//missing info in the body will fix later
-	public void addReimbursement(HttpServletResponse res) throws IOException {
-		//turning into java from json double check in the p1 demo and login	
-		
-	}
+
 	
 	//fix this have errors
 	public void selectReimByStatus(HttpServletResponse res) throws IOException {
 		
 		List<Reimbursement> pending = rs.selectReimByStatus();
+		
+		//String pstatus = null;
 		
 		String pstatus = om.writeValueAsString(pending);
 		

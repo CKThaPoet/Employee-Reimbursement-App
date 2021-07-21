@@ -9,6 +9,7 @@ public class ReimbursementDTO {
 		private String amount;
 		private String type;
 		private String description;
+		private String manger;
 		private String Status;
 		
 		public ReimbursementDTO() {
@@ -17,34 +18,27 @@ public class ReimbursementDTO {
 		}
 
 		public ReimbursementDTO(String reimbursementId, String user_name, String amount, String type,
-				String description, String status) {
+				String description, String manger, String status) {
 			super();
 			this.reimbursementId = reimbursementId;
 			this.user_name = user_name;
 			this.amount = amount;
 			this.type = type;
 			this.description = description;
-			Status = status;
-		}
-
-		public ReimbursementDTO(String user_name, String amount, String type, String description, String status) {
-			super();
-			this.user_name = user_name;
-			this.amount = amount;
-			this.type = type;
-			this.description = description;
+			this.manger = manger;
 			Status = status;
 		}
 
 		@Override
 		public String toString() {
 			return "ReimbursementDTO [reimbursementId=" + reimbursementId + ", user_name=" + user_name + ", amount="
-					+ amount + ", type=" + type + ", description=" + description + ", Status=" + Status + "]";
+					+ amount + ", type=" + type + ", description=" + description + ", manger=" + manger + ", Status="
+					+ Status + "]";
 		}
 
 		@Override
 		public int hashCode() {
-			return Objects.hash(Status, amount, description, reimbursementId, type, user_name);
+			return Objects.hash(Status, amount, description, manger, reimbursementId, type, user_name);
 		}
 
 		@Override
@@ -57,7 +51,7 @@ public class ReimbursementDTO {
 				return false;
 			ReimbursementDTO other = (ReimbursementDTO) obj;
 			return Objects.equals(Status, other.Status) && Objects.equals(amount, other.amount)
-					&& Objects.equals(description, other.description)
+					&& Objects.equals(description, other.description) && Objects.equals(manger, other.manger)
 					&& Objects.equals(reimbursementId, other.reimbursementId) && Objects.equals(type, other.type)
 					&& Objects.equals(user_name, other.user_name);
 		}
@@ -102,6 +96,14 @@ public class ReimbursementDTO {
 			this.description = description;
 		}
 
+		public String getManger() {
+			return manger;
+		}
+
+		public void setManger(String manger) {
+			this.manger = manger;
+		}
+
 		public String getStatus() {
 			return Status;
 		}
@@ -109,6 +111,6 @@ public class ReimbursementDTO {
 		public void setStatus(String status) {
 			Status = status;
 		}
-		
 
+		
 }
