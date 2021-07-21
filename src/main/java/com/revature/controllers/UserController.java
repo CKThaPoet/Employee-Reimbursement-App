@@ -16,9 +16,9 @@ public class UserController {
 	private ObjectMapper om = new ObjectMapper();
 	
 	//errors fix
-	public void getUser_Id(HttpServletResponse res) throws IOException {
+	public void getUsers_Id(HttpServletResponse res) throws IOException {
 		
-		User u = us.getUser_Id(); //get the method from the service layer
+		User u = us.getUsers_Id(int user_id); //get the method from the service layer
 		
 		String json = om.writeValueAsString(u); //turn the list into a JSON String
 		

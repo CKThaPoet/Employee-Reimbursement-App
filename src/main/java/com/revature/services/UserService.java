@@ -35,8 +35,8 @@ public class UserService {
 //			return uDAO.updateUser(user);
 //		}
 //		
-		public User getUser_Id(int user_id) {
-			return uDAO.getUser_Id(user_id);
+		public User getUsers_Id(int user_id) {
+			return uDAO.getUsers_Id(user_id);
 		}
 		
 		public boolean removeUser(int user_id) {

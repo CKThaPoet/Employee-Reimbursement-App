@@ -16,6 +16,7 @@ import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementDTO;
 import com.revature.models.ReimbursementStatus;
 import com.revature.models.ReimbursementType;
+import com.revature.models.SubmitDTO;
 import com.revature.models.User;
 import com.revature.services.ReimbursementService;
 import com.revature.services.UserService;
@@ -27,9 +28,10 @@ public class ReimbursementController {
 
 	private ReimbursementService rs = new ReimbursementService();
 	private ReimbursementStatusDAO sDAO = new ReimbursementStatusDAO();
-	ReimbursementTypeDAO tDAO = new ReimbursementTypeDAO();
+	private ReimbursementTypeDAO tDAO = new ReimbursementTypeDAO();
 	private UserDAO uDAO = new UserDAO();
 	private ReimbursementDTO reimDTO = new ReimbursementDTO();
+	private SubmitDTO subDTO = new SubmitDTO();
 	
 	private ObjectMapper om = new ObjectMapper(); //import Jackson databind use object mapper  so we can work with JSON
 	
@@ -48,9 +50,7 @@ public class ReimbursementController {
 	
 	//missing info in the body will fix later
 	public void addReimbursement(HttpServletResponse res) throws IOException {
-		//turning into java from json double check in the p1 demo and login
-		
-		
+		//turning into java from json double check in the p1 demo and login	
 		
 	}
 	
@@ -59,18 +59,16 @@ public class ReimbursementController {
 		
 		List<Reimbursement> pending = rs.selectReimByStatus();
 		
-
 		String pstatus = om.writeValueAsString(pending);
 		
 		res.getWriter().print(pstatus);
-		res.setStatus(200);
-		
+		res.setStatus(200);		
 		
 	}
 	
-	public void addReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException 
+	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException 
 	{
-		BufferedReader reader = request.getReader();
+		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		//read the contents of the bufferedReader into a String
 		String readL = reader.readLine();
@@ -95,9 +93,73 @@ public class ReimbursementController {
 		
 		ReimbursementType type =tDAO.getReType(Integer.parseInt(rDTO.getType()));
 		
-		Reimbursement r = new Reimbursement(user,Integer.parseInt(reimDTO.getAmount()), type , reimDTO.getDes(),  null, status );
+		Reimbursement r = new Reimbursement(user,Integer.parseInt(reimDTO.getAmount()), type , reimDTO.getDescription(), null, status);
 		
 		rs.addReimbursement(r);
 		
 	}
+	
+	public void approveReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		//make a buffered reader to read text from the input string
+		BufferedReader reader = req.getReader();
+		StringBuilder sbuild = new StringBuilder();
+		//read the contents of the bufferedReader into a String
+		String readL = reader.readLine();
+		
+		while(readL != null)
+		{
+			//add the contents of line to the stringbulder
+			sbuild.append(readL);
+			//assign line to the next line of data in the reader
+			readL = reader.readLine();
+		}
+		//ObjectMapper only works with Strings
+		String body = new String(sbuild);
+		//use the ObjectMapper to read the JSON into the DTO
+		ReimbursementDTO reimDTO = om.readValue(body, ReimbursementDTO.class);
+		
+		//if the approval was successful... still learning how to use parse thanks for explaining it mark
+		if(rs.approveReimbursement(Integer.parseInt(reimDTO.getReimbursementId())))
+		{
+			res.setStatus(200);
+		}
+		else//approval was unsuccessful
+		{
+			res.setStatus(202);
+		}
+				
+		
+	}
+	
+	public void denyReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException 
+	{
+		//make a buffered reader to read text from the input string
+		BufferedReader reader = req.getReader();
+		StringBuilder sbuild = new StringBuilder();
+		//read the contents of the bufferedReader into a String
+		String readL = reader.readLine();
+		
+		while(readL != null)
+		{
+			//add the contents of line to the stringbulder
+			sbuild.append(readL);
+			//assign line to the next line of data in the reader
+			readL = reader.readLine();
+		}
+		//ObjectMapper only works with Strings
+		String body = new String(sbuild);
+		//use the ObjectMapper to read the JSON into the DTO
+		ReimbursementDTO reimDTO = om.readValue(body, ReimbursementDTO.class);
+		
+		//if the denial was successful... still learning how to use parse thanks for explaining it mark
+		if(rs.denyReimbursement(Integer.parseInt(reimDTO.getReimbursementId())))
+		{
+			res.setStatus(200);
+		}
+		else//denial was unsuccessful
+		{
+			res.setStatus(202);
+		}
+	
+}
 }

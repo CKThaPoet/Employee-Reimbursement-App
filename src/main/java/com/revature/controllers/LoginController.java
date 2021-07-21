@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +17,11 @@ public class LoginController {
 	ObjectMapper om = new ObjectMapper(); //we will have to inport Jackson databind so we can work with JSON
 	private LoginService logS = new LoginService();
 	
+	
 	//passing http servlet request and response also need to throw IO exception
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
 		if(req.getMethod().equals("POST")) { //making sure we actually got a POST request before executing. 
 			
 			//this process below is to get our JSON String
@@ -48,7 +51,9 @@ public class LoginController {
 			//and put it into a LoginDTO class as fields
 			LoginDTO logDTO = om.readValue(body, LoginDTO.class); //we created a LoginDTO using the JSON-turned-Java using read value method
 			
-			
+			System.out.println(logDTO);
+			System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			res.setStatus(201);
 			//control flow to determine what happens in the event of a successful/unsuccessful login--------
 			
 			if(logS.login(logDTO.user_name, logDTO.user_password)) { //if the username/password sent to the service are valid...
@@ -64,7 +69,9 @@ public class LoginController {
 				
 		
 				res.setStatus(200); //because login was successful use status code 200
-				res.getWriter().print("Login Complete"); //we won't see this message anywhere but postman
+				
+				//GIBARAL WAS HAVING ISSUES WITH THIS BEING HERE IN REGARDS TO HIS JSON
+				//res.getWriter().print("Login Complete"); //we won't see this message anywhere but postman
 				
 			} else {
 				HttpSession ses = req.getSession(false); //this will only return a session if one is already active

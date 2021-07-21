@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Reimbursement;
 import com.revature.utils.HibernateUtil;
@@ -86,5 +87,33 @@ public class ReimbursementDAO implements ReimbursementInterface {
         
 		return allList;
 	}
+	
+	
+	public Reimbursement getReById(int id) {
+		Session ses = HibernateUtil.getSession();
+		
+		Reimbursement rId = ses.get(Reimbursement.class, id);
+		
+		HibernateUtil.closeSession();
+		
+		return rId;
 
+}
+	//mark  said I need a method to update the reimbursements
+	public void updateRe(Reimbursement reimbursement)
+	{
+		Session ses = HibernateUtil.getSession();
+		//I have to use transactions had to get help havent used this much
+		Transaction tx = ses.beginTransaction();
+		if(!tx.isActive())
+		{
+			tx.begin();
+		}
+		System.out.println("*MERGE*CHANGES*");
+		ses.merge(reimbursement);
+		System.out.println("*MERGE*CHANGES*");
+		tx.commit();
+		HibernateUtil.closeSession();
+	}
+	
 }

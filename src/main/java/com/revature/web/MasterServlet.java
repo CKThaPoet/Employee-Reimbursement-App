@@ -64,10 +64,17 @@ import com.revature.controllers.UserController;
 				break;
 				
 				//need the controller and service set up for this reimbursement dao so I can add case here
-			}
 			
+			case "approveReimbursement":
+					rc.approveReimbursement(req, res);
+					break;
+					
+			case "denyReimbursement":
+				rc.denyReimbursement(req, res);
+				break;
+					
+			}
 		}
-		
 		
 		
 		protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -78,8 +85,6 @@ import com.revature.controllers.UserController;
 			//and we'll differentiate get from post in the controllers instead of the servlet.
 			
 			//I will have to double check but I think I need this in here like it is in doGEt
-			res.setContentType("application/json");
-			res.setStatus(404);
-			String URI = req.getRequestURI().replace("/P1-Chani-Kinsler/", "");
+			
 		}
 }

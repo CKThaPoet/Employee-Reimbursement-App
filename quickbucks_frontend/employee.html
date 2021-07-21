@@ -17,7 +17,7 @@
       <div class="card-img-overlay">
         <h1 class="card-title">QuickBucks</h1>
         <p class="card-text">This is a Employee Reimbursement Application.</p>
-        <p class="card-text">Please sign in to use the aplication</p>
+        <p class="logged">Please sign in to use the aplication</p>
         
             <div class ="loginForm">
         <input id="username" type="text" placeholder="username" class="col-sm-4 form-control">
@@ -35,11 +35,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements<span class="sr-only">(current)</span></a>
+          <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements<span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="employee.html">add a Reimbursements</a>
           <a class="nav-item nav-link" href="#">View Pending Status</a>
           <a class="nav-item nav-link" href="#">View All Users</a>
-          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
         </div>
       </div>
     </nav>
@@ -54,11 +54,10 @@
       <div class="form-group">
         <label for="exampleFormControlSelect1">Type</label>
         <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <option>1. Food</option>
+          <option>2. Lodging</option>
+          <option>3. Travel</option>
+          <option>4. Other</option>
         </select>
       </div>
       <div class="form-group">

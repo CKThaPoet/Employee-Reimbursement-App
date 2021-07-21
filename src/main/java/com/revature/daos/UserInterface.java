@@ -11,7 +11,7 @@ public interface UserInterface {
 	
 	//public void updateUser(User user);
 	
-	public User getUser_Id(int user_id);
+	public User getUsers_Id(int user_id);
 	
 	public boolean removeUser(int user_id);
 	

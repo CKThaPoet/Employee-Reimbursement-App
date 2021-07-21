@@ -36,7 +36,7 @@ public class UserDAO implements UserInterface{
 //	}
 	
 	@Override
-	public User getUser_Id(int user_id) {
+	public User getUsers_Id(int user_id) {
 		Session ses = HibernateUtil.getSession();
 		User uID = ses.get(User.class, user_id);
 		HibernateUtil.closeSession();
@@ -46,7 +46,7 @@ public class UserDAO implements UserInterface{
 	@Override
 	public boolean removeUser(int user_id) {
 		Session ses = HibernateUtil.getSession();
-		User userGone = getUser_Id(user_id); 
+		User userGone = getUsers_Id(user_id); 
 		
 			ses.delete(userGone);
 			HibernateUtil.closeSession();

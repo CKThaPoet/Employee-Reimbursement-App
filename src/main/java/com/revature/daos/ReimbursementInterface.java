@@ -19,5 +19,5 @@ public interface ReimbursementInterface {
 
 	public List<Reimbursement> getReimbursements();
 
-	
+	public Reimbursement getReById(int id);
 }

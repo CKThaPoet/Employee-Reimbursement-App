@@ -18,12 +18,13 @@
     <div class="card-img-overlay">
       <h1 class="card-title">QuickBucks</h1>
       <p class="card-text">This is a Employee Reimbursement Application.</p>
-      <p class="card-text">Please sign in to use the aplication</p>
+      <p id="logged">Please sign in to use the aplication</p>
       
           <div class ="loginForm">
       <input id="username" type="text" placeholder="username" class="col-sm-4 form-control">
             <input id="password" type="password" placeholder="password" class="col-sm-4 form-control">  
             <button id="loginButton" class="btn btn-dark">Login</button>
+            <button id = "buttonAll" type="button" class="btn btn-primary">Primary</button>
            </div>
            
     </div>
@@ -36,7 +37,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements <span class="sr-only">(current)</span></a>
+        <a id= "nav-ticket" class="nav-item nav-link active" href="quickbucks.html">View All Reimbursements <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="employee.html">add a Reimbursements</a>
         <a class="nav-item nav-link" href="#">View Pending Status</a>
         <a class="nav-item nav-link" href="#">View All Users</a>
@@ -49,12 +50,7 @@
     <table class="table custom-table">
     <thead>
     <tr>
-    <th scope="col">
-    <label class="control control--checkbox">
-    <input type="checkbox" class="js-check-all" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
+    
     <th scope="col">ID</th>
     <th scope="col">Name</th>
     <th scope="col">Description</th>
@@ -64,18 +60,13 @@
     <th scope="col">Status</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id= "allInfo">
     <tr scope="row">
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>
+    
+    <td class="databaseId">
     1392
     </td>
-    <td><a href="#">James Yates</a></td>
+    <td class = "username"><a href="#">James Yates</a></td>
     <td class = "des">
     Web Designer
     <small class="d-block">Far far away, behind the word mountains</small>
@@ -86,119 +77,8 @@
     <td class = "Status"> pending </td>
     </tr>
     <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>4616</td>
-    <td><a href="#">Matthew Wasil</a></td>
-    <td class = "des">
-    Graphic Designer
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td >+02 020 3994 929</td>
-    <td class ="cost">London College</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
-    <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>9841</td>
-    <td><a href="#">Sampson Murphy</a></td>
-    <td class = "des">
-    Mobile Dev
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td class = "remType">+01 352 1125 0192</td>
-    <td class ="cost">Senior High</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
-    <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>9548</td>
-    <td><a href="#">Gaspar Semenov</a></td>
-    <td class = "des">
-    Illustrator
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td class = "remType">+92 020 3994 929</td>
-    <td class ="cost">College</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
-    <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>4616</td>
-    <td><a href="#">Matthew Wasil</a></td>
-    <td class = "des">
-    Graphic Designer
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td class = "remType">+02 020 3994 929</td>
-    <td class ="cost">London College</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
-    <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>9841</td>
-    <td><a href="#">Sampson Murphy</a></td>
-    <td class = "des">
-    Mobile Dev
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td class = "remType">+01 352 1125 0192</td>
-    <td class ="cost" >Senior High</td>
-    <td class = "Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
-    <tr class="spacer"><td colspan="100"></td></tr>
-    <tr>
-    <th scope="row">
-    <label class="control control--checkbox">
-    <input type="checkbox" />
-    <div class="control__indicator"></div>
-    </label>
-    </th>
-    <td>9548</td> 
-    <td><a href="#">Gaspar Semenov</a></td>
-    <td class = "des">
-    Illustrator
-    <small class="d-block">Far far away, behind the word mountains</small>
-    </td>
-    <td class = "remType">+92 020 3994 929</td>
-    <td class ="cost" >College</td>
-    <td class="Resolver"> pending </td>
-    <td class = "Status"> pending </td>
-    </tr>
+
+
     </tbody>
     </table>
     </div>

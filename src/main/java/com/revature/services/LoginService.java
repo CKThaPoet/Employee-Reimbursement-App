@@ -14,7 +14,7 @@ import com.revature.models.UserRole;
 
 public class LoginService {
 	
-	private LoginDTO logDAO = new LoginDTO();
+	private LoginDTO logDTO = new LoginDTO();
 	private UserDAO uDAO = new UserDAO();
 	private UserRoleDAO urDAO = new UserRoleDAO();
 	
@@ -44,7 +44,7 @@ public boolean login(String user_name, String user_password) {
 
 //	//use if I can get it to work doubt it
 //	public UserRole getRole(User user, Session roles) {
-//		UserRole role = logDAO.getUser_role(user_name, user_role);
+//		UserRole role = logDTO.getUser_role(user_name, user_role);
 //		if(role!= null) {
 //			return role;
 //		}

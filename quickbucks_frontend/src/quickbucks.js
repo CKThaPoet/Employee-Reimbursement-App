@@ -3,7 +3,7 @@ const url = 'http://localhost:8079/P1-Chani-Kinsler/' //I grabbed this base URL 
 //Eventually, we'll use this base URL and make calls to the server by adding endpoints to it
 
 //add functionality to our button using an event listener
-document.getElementById('submitButton').addEventListener('click', viewTicketFunc);
+document.getElementById("buttonAll").addEventListener('click', viewTicketFunc);
 //so when this button gets clicked, the function called assembleFunc will run
 //we could have used: document.getElementById('getAvengerButton').onClick(assembleFunc);
 
@@ -14,7 +14,7 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
     //await makes the async functions wait until the promise returns with the fetched data
 
     //I will have to fix this for now it just gets all the reimbursements
-    let response = await fetch(url + 'addReimbursements', {credentials: "include"});
+    let response = await fetch(url + 'reimbursements', {credentials: "include"});
 
     console.log(response);
 
@@ -22,6 +22,7 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
         console.log(response); //just to see what comes back for debug
 
         let data = await response.json(); //get the JSON data from the response, turn it into JS object
+        console.log(data);
 
 
         //now, I want to put each reimbursement into my table
@@ -36,10 +37,11 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
             let cell = document.createElement("td"); //create a cell for the field
             cell.innerHTML = reimbursement.re_id; //fill the cell with avenger data
             row.appendChild(cell) //this row now has the first cell (av_id)
+            
 
             //the we'll do this^ for each field in the avenger model
             let cell2 = document.createElement("td");
-            cell2.innerHTML = reimbursement.re_authour;
+            cell2.innerHTML = reimbursement.re_author.user_name;
             row.appendChild(cell2);
 
             let cell3 = document.createElement("td");
@@ -47,7 +49,7 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
             row.appendChild(cell3);
 
             let cell4 = document.createElement("td");
-            cell4.innerHTML = reimbursement.reimbursement_type;
+            cell4.innerHTML = reimbursement.reimbursement_type.re_type;
             row.appendChild(cell4);
 
             let cell5 = document.createElement("td");
@@ -65,10 +67,12 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
           }
 
             //if the avenger has a home, just fill the cell with the home name
-            if(reimbursement.reimbursement_status != null){
-                console.log("home came through")
+            //need to use the . operator with the reimbursement.reimbursement_status.re_status
+            //  to get the word of the status instead of the id
+            if(reimbursement.reimbursement_status.re_status != null){
+                console.log("you will be judged lol")
                 let cell7 = document.createElement("td");
-                cell7.innerHTML = reimbursement.reimbursement_status;
+                cell7.innerHTML = reimbursement.reimbursement_status.re_status;
                 row.appendChild(cell7);
             } else { //otherwise, still append the cell but leave it empty
                 let cell7 = document.createElement("td");
@@ -77,7 +81,7 @@ async function viewTicketFunc() { //async returns a promise (which fetch returns
 
 
 
-            document.getElementById("table-responsive").appendChild(row);
+            document.getElementById("allInfo").appendChild(row);
             //so the variable "row" we created alllll the way at the top of the for loop 
             //will be appended to our empty table body in the HTML
 
@@ -103,9 +107,10 @@ async function loginFunc() {
     let userp = document.getElementById("password").value; // userp stands for password
 
     //we want to send the user/passs as JSON, so what I need to do first is make a JS object
+    //might have to change this
     let user = {
-        username:usern,
-        password:userp
+        user_name:usern,
+        user_password:userp
     }
 
     console.log(user);
@@ -129,9 +134,9 @@ async function loginFunc() {
     //control flow based on success or failed login
     if(response.status === 200) {
         //this will wipe our login row, and welcome the user
-        document.getElementById("login-row").innerText="Welcome!";
+        document.getElementById("logged").innerText="Welcome!";
     } else {
-        document.getElementById("login-row").innerText="Login Failed! Refresh the page!";
+        document.getElementById("logged").innerText="Login Failed! Refresh the page!";
     }
 
 }

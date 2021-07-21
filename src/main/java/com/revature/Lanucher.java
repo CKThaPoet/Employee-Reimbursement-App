@@ -57,10 +57,12 @@ public class Lanucher {
 		//create user role objects
 //		UserRole ur1 = new UserRole("Finance Manager");
 //		UserRole ur2 = new UserRole("Employee");
+//		UserRole ur3 = new UserRole("Other");
 		
 		//add roles
 //		urDAO.addRole(ur1);
 //		urDAO.addRole(ur2);
+//		urDAO.addRole(ur3);
 //		
 //		ReimbursementType rt1 = new ReimbursementType("Food");
 //		ReimbursementType rt2 = new ReimbursementType("Lodging");
@@ -90,12 +92,12 @@ public class Lanucher {
 //		rDAO.addReimbursement(r3);
 		
 		//trying getting all the reimbursements
-//		List<Reimbursement> rlist = rDAO.getReimbursements();
+		List<Reimbursement> rlist = rDAO.getReimbursements();
 		
 		//use a enhanced for loop to get the list
-//		for(Reimbursement r : rlist) {
-//		System.out.println(r);
-//		}
+		for(Reimbursement r : rlist) {
+		System.out.println(r);
+		}
 		
 		//interesting it prints the users and their info and the reimbursements id's and the reimbursements they sumbited 
 //		Session ses = HibernateUtil.getSession();
